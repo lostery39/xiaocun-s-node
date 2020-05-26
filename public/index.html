@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- for azure:  all these links must use https, not http -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>My First jQuery Mobile Application</title>
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet/image.css"/>
+  <script src="https://code.jquery.com/jquery-1.8.2.min.js"> </script>
+  <script src="https://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+ </head>
+
+ <body>
+      //*********************************************************
+      //*********************************************************
+<div data-role="page" id="Home">
+
+   <div data-role="header" data-theme='b'> 
+      <h1>xiaocun's Game App</h1>
+      <div data-role="navbar">
+         <ul>
+               <li><a href="#Show" data-icon="star">Show Games</a> </li>
+               <li><a href="#AddDelete" data-icon="plus">Buy Game</a> </li>
+               <li><a href="#GamePro" data-icon="plus">Production</a> </li>
+         </ul>
+      </div><!-- /navbar -->
+   </div>
+
+   <div data-role="content" data-theme='c'>
+      <h2>My Games App</h2>
+      <img src="/images/MyGame.png" alt="Smiley face"  >.
+      
+   </div>
+
+   <div data-role="footer" data-theme='b'>
+      <h1>Copywrite xiaocun 2020</h1>
+   </div>
+
+</div>
+//*********************************************************
+//*********************************************************
+<div data-role="page" id="Show">
+
+   <div data-role="header" data-theme='b'> 
+      <h1>xiaocun's Game App</h1>
+      <div data-role="navbar">
+            <ul>
+                  <li><a href="#Home" data-icon="home">Home Page</a></li>
+                  <li><a href="#AddDelete" data-icon="plus">Buy Game</a> </li>
+            </ul>
+         </div><!-- /navbar -->
+   </div>
+
+   <div data-role="content" data-theme='c'>
+     <h2>Owner Games</h2>
+     <div>
+         <ul id="listUl"></ul>
+     </div>
+   </div>
+
+   <div data-role="footer" data-theme='b'>
+      <h1>Copywrite xiaocun 2020</h1>
+   </div>
+
+</div>
+
+<div data-role="page" id="AddDelete">
+
+            <div data-role="header" data-theme='b'> 
+            <h1>xiaocun's Game App</h1>
+               <div data-role="navbar">
+                     <ul>
+                        <li><a href="#Home" data-icon="home">Home Page</a></li>
+                        <li><a href="#Show" data-icon="star">Show Games</a> </li
+                     </ul>
+                  </div><!-- /navbar -->
+            </div>
+    
+            <div data-role="content" data-theme='d'>
+               <h2>Delete a game by name</h2>
+               <div>
+                  <ul id="deleteListUl"></ul>
+               </div>
+               Enter the Game Name: <input type="text" id="deleteItem">
+               <button id="delete" >Return that Game</button>
+            </div>
+            <div data-theme='d'>
+               <h3>buy a new game here</h3>
+               Game Name: <input type="text" id="GName">
+               Game Price: <input type="text" id="GPrice">
+               Game Count: <input type="text" id="GCount">
+             Game Description: <input type="text" id="GDesc">
+               <button id="newGame" >Submit Buy Game</button>
+            </div>
+    
+            <div data-role="footer"  data-theme='b'>
+                <h1>Copywrite xiaocun 2020</h1>
+            </div>
+    
+</div>
+
+
+//*********************************************************
+//*********************************************************
+
+<!-- // there are no user links to this page as it should only be displayed by a li event which  -->
+<!-- // has set the hidden field -->
+
+<div data-role="page" id="Details">
+
+            <div data-role="header" data-theme='b'> 
+            <h1>xiaocun's Game App</h1>
+               <div data-role="navbar">
+                     <ul>
+                        <li><a href="#Home" data-icon="home">Home Page</a></li>
+                        <li><a href="#Show" data-icon="star">Show Gemes</a> </li>
+                        <li><a href="#AddDelete" data-icon="plus">Buy Games</a> </li>
+                     </ul>
+                  </div><!-- /navbar -->
+            </div>
+    
+            <div data-role="content" data-theme='d'>
+               <h2>Here are the details for that Game</h2>
+               <div>
+                  <p id="IDparmHere" hidden>change1</p>  <!-- not visable,     a place to stash the note title -->
+                      <!-- our li events write the value, and our Details pagebeforeshow  reads it -->
+                  <p class="bold" > Here are the details</p>
+                  <p> <span class="bold">   Game Name: </span> <span id="oneGName" </span>  </p>
+                  <p><span class="bold"> Game Price: </span> <span id="oneGPrice" </span>  </p>
+                  <p><span class="bold">  Game Count: </span> <span id="oneGCount" </span>  </p>
+                  
+                  <p><span class="bold"> Game Description: </span> <span id="oneGDesc" </span>  </p>
+               </div>
+                <div>
+                 <p><a href="#Comments" id="acoment" class='oneComment'>See Comments</a></p>
+                 </div>
+
+            </div>
+    
+            <div data-role="footer"  data-theme='b'>
+                <h1>Copywrite xiaocun 2020</h1>
+            </div>
+    
+</div>
+<div data-role="page" id="Comments">
+
+            <div data-role="header" data-theme='b'> 
+            <h1>xiaocun's Game App</h1>
+               <div data-role="navbar">
+                     <ul>
+                        <li><a href="#Home" data-icon="home">Home Page</a></li>
+                        <li><a href="#Show" data-icon="star">Show Gemes</a> </li>
+                     </ul>
+                  </div><!-- /navbar -->
+            </div>
+    
+            <div data-role="content" data-theme='d'>
+               <h2>Here are the Comments for that Game</h2>
+               <div>
+                  <p id="hideName" hidden>change1</p>  <!-- not visable,     a place to stash the note title -->
+                      <!-- our li events write the value, and our Details pagebeforeshow  reads it -->
+                  <p class="bold" > Here are the Comments</p>
+                  <p> <span class="bold">   Game Name: </span> <span id="onecGName" </span>  </p>
+                  <p><span class="bold"> Game Comments: </span> <span id="onecComment" </span>  </p>
+               </div>
+               
+
+            </div>
+    
+            <div data-role="footer"  data-theme='b'>
+                <h1>Copywrite xiaocun 2020</h1>
+            </div>
+    
+</div>
+
+<div data-role="page" id="GamePro">
+ <div data-role="header" data-theme='b'> 
+            <h1>xiaocun's Game App</h1>
+               <div data-role="navbar">
+                     <ul>
+                        <li><a href="#Home" data-icon="home">Home Page</a></li>
+                        <li><a href="#Show" data-icon="star">Show Games</a> </li>
+                        <li><a href="#AddDelete" data-icon="plus">Buy Game</a> </li>
+                     </ul>
+                  </div><!-- /navbar -->
+            </div>
+              <div data-role="content" data-theme='d'>
+               <h2>It's Display Page</h2>
+               <div>
+                <p><span class="bold">xxxx...</p>
+                  <p><span class="bold"> created by xiaocun  </p>
+               </div>
+               
+
+            </div>
+    
+            <div data-role="footer"  data-theme='b'>
+                <h1>Copywrite xiaocun 2020</h1>
+            </div>
+</div>
+
+ </body>
+ </html> 
